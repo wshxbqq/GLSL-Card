@@ -408,7 +408,7 @@ f(3.3); //传入的 3.3是高精度
 
 __invariant关键字:__
 
-由于shader在编译时会进行一些内部优化,可能会导致同样的运算在不同shader里结果不一定精确相等.这会引起一些问题,尤其是vertx shader向fragmeng shader传值的时候.
+由于shader在编译时会进行一些内部优化,可能会导致同样的运算在不同shader里结果不一定精确相等.这会引起一些问题,尤其是vertex shader向fragment shader传值的时候.
 所以我们需要使用`invariant` 关键字来显式要求计算结果必须精确一致. 当然我们也可使用 `#pragma STDGL invariant(all)`来命令所有输出变量必须精确一致,
 但这样会限制编译器优化程度,降低性能.
 
