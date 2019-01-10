@@ -34,7 +34,7 @@ glsl中的向量(vec2,vec3,vec4)往往有特殊的含义,比如可能代表了�
 
 `vector.rgba`  其中rgba 可以任意组合
 
-`vector.stpq`  其中rgba 可以任意组合
+`vector.stpq`  其中stpq 可以任意组合
 
 ```cpp
 vec4 v=vec4(1.0,2.0,3.0,1.0);
