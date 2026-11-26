@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f4">
+  <meta name="description" content="用 10 章可编辑的 WebGL 2 实验，从第一个片元着色器学到程序化图形。">
+  <title>GLSL 中文互动教程</title>
+  <link rel="stylesheet" href="./book/style.css">
+  <script type="module" src="./book/main.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <a class="brand" href="#first-pixel">GLSL 中文互动教程</a>
+    <a href="https://github.com/wshxbqq/GLSL-Card">GitHub</a>
+  </header>
+  <div class="layout">
+    <nav class="toc" aria-label="章节目录">
+      <h2>目录</h2>
+      <ol id="chapter-list"></ol>
+    </nav>
+    <main>
+      <header class="intro">
+        <h1 id="chapter-title" tabindex="-1"></h1>
+        <p id="chapter-intro"></p>
+      </header>
+      <section class="lab" aria-label="着色器实验">
+        <div class="toolbar">
+          <label for="example">示例</label>
+          <select id="example"></select>
+          <button class="primary" id="run" type="button">运行</button>
+          <button id="reset" type="button">重置</button>
+          <button id="pause" type="button" hidden>暂停动画</button>
+        </div>
+        <div class="split">
+          <div class="code">
+            <label for="stage">着色器源码</label>
+            <select id="stage">
+              <option value="fragment">片元</option>
+              <option value="vertex">顶点</option>
+            </select>
+            <textarea id="shader" aria-label="着色器源码" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off"></textarea>
+          </div>
+          <div class="preview">
+            <div class="preview-label" aria-hidden="true">实时预览</div>
+            <canvas id="preview" aria-label="着色器渲染预览"></canvas>
+          </div>
+        </div>
+        <p class="status" id="status" role="status"></p>
+      </section>
+      <article class="lesson" id="lesson"></article>
+      <nav id="chapter-nav" class="pagination" aria-label="上一章和下一章"></nav>
+      <footer>
+        <a href="https://github.com/wshxbqq/GLSL-Card/blob/master/reference/glsl-es-100.md">GLSL ES 1.00 旧版速查</a>
+        <a href="https://registry.khronos.org/webgl/specs/2.0/">WebGL 2 规范</a>
+      </footer>
+    </main>
+  </div>
+  <noscript>请启用 JavaScript 后打开互动教程。</noscript>
+</body>
+</html>
