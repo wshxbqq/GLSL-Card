@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f8f8f4">
-  <meta name="description" content="用 10 章可编辑的 WebGL 2 实验，从第一个片元着色器学到程序化图形。">
+  <meta name="description" content="10 章配有教学图、可编辑的 WebGL 2 实验和练习题的 GLSL 中文开源书。">
   <title>GLSL 中文互动教程</title>
   <link rel="stylesheet" href="./book/style.css">
   <script type="module" src="./book/main.js"></script>
@@ -21,10 +21,15 @@
     </nav>
     <main>
       <header class="intro">
+        <p id="chapter-position" class="chapter-position"></p>
         <h1 id="chapter-title" tabindex="-1"></h1>
         <p id="chapter-intro"></p>
       </header>
-      <section class="lab" aria-label="着色器实验">
+      <figure class="chapter-figure">
+        <img id="chapter-image" width="1152" height="552" decoding="async">
+        <figcaption id="chapter-caption"></figcaption>
+      </figure>
+      <section class="lab" id="lab" aria-label="着色器实验">
         <div class="toolbar">
           <label for="example">示例</label>
           <select id="example"></select>
@@ -51,7 +56,7 @@
       <article class="lesson" id="lesson"></article>
       <nav id="chapter-nav" class="pagination" aria-label="上一章和下一章"></nav>
       <footer>
-        <a href="https://github.com/wshxbqq/GLSL-Card/blob/master/reference/glsl-es-100.md">GLSL ES 1.00 旧版速查</a>
+        <a href="https://github.com/wshxbqq/GLSL-Card/blob/master/reference/glsl-es-100.md">原始版本 · GLSL ES 1.00 中文手册</a>
         <a href="https://registry.khronos.org/webgl/specs/2.0/">WebGL 2 规范</a>
       </footer>
     </main>

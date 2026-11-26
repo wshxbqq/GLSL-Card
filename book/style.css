@@ -133,3 +133,32 @@ footer { margin-top: 26px; }
   .code { border-right: 0; border-top: 1px solid #45504a; }
   textarea { height: 236px; }
 }
+
+.intro .chapter-position {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: .8rem;
+  font-variant-numeric: tabular-nums;
+}
+.chapter-figure { margin: 23px 0 0; max-width: 860px; }
+.chapter-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f7f4e9;
+}
+.chapter-figure figcaption {
+  margin-top: 9px;
+  color: var(--quiet);
+  font-size: .86rem;
+  line-height: 1.7;
+}
+.lab { scroll-margin-top: 14px; }
+.exercise-section { max-width: 68ch; margin: 0 0 26px; padding: 15px 0 0; border-top: 1px solid var(--line); }
+.exercise-section h3 { margin: 0 0 9px; font-size: 1.02rem; }
+.exercise-section ol { margin-top: 13px; }
+.exercise-section li + li { margin-top: 13px; }
+.exercise-section summary { width: fit-content; color: var(--accent); cursor: pointer; font-size: .86rem; }
+.exercise-section details p { padding: 7px 10px; background: var(--wash); border-radius: 5px; font-size: .88rem; }

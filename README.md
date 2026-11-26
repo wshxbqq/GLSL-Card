@@ -1,6 +1,6 @@
-# GLSL 中文互动教程
+# GLSL 中文互动教程 · 开源书
 
-用浏览器里的 WebGL 2 实验学习 GLSL ES 3.00。每章包含两个可运行示例、原理讲解和动手练习。可以在页面上修改片元或顶点着色器，立即比较渲染结果，也能查看编译和链接错误。
+用浏览器里的 WebGL 2 实验学习 GLSL ES 3.00。全书 10 章，每章有一张教学图、两个可运行示例和两个小节。每小节各有 3 道练习题，题目下可以展开提示。可以在页面上修改片元或顶点着色器，立即比较渲染结果，也能查看编译和链接错误。
 
 [在线阅读与运行示例](https://wshxbqq.github.io/GLSL-Card/)
 
@@ -29,16 +29,19 @@ python3 -m http.server 8000
 
 在「示例」里切换实验，在源码区选择「片元」或「顶点」。编辑后点击「运行」，也可以在编辑器内按 Ctrl+Enter 或 Cmd+Enter。运行出错时会显示编译日志，并保留上一帧可用的渲染程序。「重置」恢复当前示例的源码。
 
-章节正文和原始代码在 [book/chapters.js](book/chapters.js)，WebGL 初始化、贴图上传和绘制流程在 [book/renderer.js](book/renderer.js)。
+章节正文和示例在 [book/chapters.js](book/chapters.js)，练习、提示和图注在 [book/study.js](book/study.js)，教学图在 [book/figures](book/figures)。配图由文生图模型生成，经逐张核对、裁切、缩放和 pngquant 压缩。
 
 ## 附录与规范
 
-- [旧版 GLSL ES 1.00 中文速查](reference/glsl-es-100.md)保留了项目原始手册，适合查旧项目里的语法。
+- [原始版本 · GLSL ES 1.00 中文手册](reference/glsl-es-100.md)收录项目最初的速查手册。
 - [WebGL 2 规范](https://registry.khronos.org/webgl/specs/2.0/)与 [GLSL ES 3.00 规范](https://registry.khronos.org/OpenGL/specs/es/3.0/GLSL_ES_Specification_3.00.pdf)可用于查阅完整定义。
 
-## 感谢赞助
+## 开源许可
 
-感谢 **智审标（SmartBid）** 赞助本项目。智审标提供招投标文件审查，支持核对资格条件、条款响应和报价，报告附原件页码供复核。
+新版章节正文、练习和图注采用 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。互动程序和着色器示例采用 [MIT](LICENSE)。原始版本、其中引用的材料以及生成配图按各自适用的权利与条款使用。
 
-- [智审标官网](https://biao.vvcut.cn/)
-- [智审标开源 Agent Skill · GitHub](https://github.com/wshxbqq/smartbid-tender-review)
+## 特别感谢
+
+感谢**智审标（SmartBid）**。智审标提供招投标文件审查，支持核对资格条件、条款响应与报价，审查报告附原件页码供复核。
+
+[智审标官网](https://biao.vvcut.cn/) · [智审标开源 Skill](https://github.com/wshxbqq/smartbid-tender-review)

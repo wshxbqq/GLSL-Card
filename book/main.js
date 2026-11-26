@@ -1,4 +1,5 @@
 import { chapters } from "./chapters.js";
+import { study } from "./study.js";
 import { createRenderer } from "./renderer.js";
 
 const byId = (id) => document.getElementById(id);
@@ -100,10 +101,63 @@ function textWithCode(element, text) {
   return element;
 }
 
+function renderStudy() {
+  const { figure, sections } = study[chapter.id];
+  const image = byId("chapter-image");
+  image.alt = figure[0];
+  image.src = new URL("./figures/" + chapter.id + ".png", import.meta.url);
+  byId("chapter-caption").textContent = figure[1];
+
+  const heading = document.createElement("h2");
+  heading.textContent = "原理";
+  const exercises = document.createElement("h2");
+  exercises.textContent = "动手练习";
+
+  const sectionsMarkup = sections.map(([name, questions], index) => {
+    const section = document.createElement("section");
+    section.className = "exercise-section";
+    const subtitle = document.createElement("h3");
+    subtitle.textContent = name;
+    const open = document.createElement("button");
+    open.type = "button";
+    open.textContent = "打开示例 · " + chapter.examples[index].name;
+    open.addEventListener("click", () => {
+      if (Number(selector.value) !== index) {
+        activeStage = stage.value = "fragment";
+        selector.value = String(index);
+        loadExample();
+      }
+      byId("lab").scrollIntoView({ block: "start" });
+      editor.focus({ preventScroll: true });
+    });
+
+    const list = document.createElement("ol");
+    for (const [question, hint] of questions) {
+      const item = document.createElement("li");
+      const details = document.createElement("details");
+      const summary = document.createElement("summary");
+      summary.textContent = "查看提示";
+      details.append(summary, textWithCode(document.createElement("p"), hint));
+      item.append(textWithCode(document.createElement("p"), question), details);
+      list.append(item);
+    }
+    section.append(subtitle, open, list);
+    return section;
+  });
+
+  byId("lesson").replaceChildren(
+    heading,
+    ...chapter.paragraphs.map((text) => textWithCode(document.createElement("p"), text)),
+    exercises,
+    ...sectionsMarkup,
+  );
+}
+
 function renderChapter(focus = false) {
   const index = Math.max(0, chapters.findIndex((item) => "#" + item.id === location.hash));
   chapter = chapters[index];
   title.textContent = chapter.title;
+  byId("chapter-position").textContent = "第 " + (index + 1) + " 章 / 共 " + chapters.length + " 章";
   intro.textContent = chapter.intro;
   document.title = chapter.title + " | GLSL 中文互动教程";
   for (const link of chapterList.querySelectorAll("a")) {
@@ -115,18 +169,7 @@ function renderChapter(focus = false) {
   stage.value = activeStage = "fragment";
   loadExample();
 
-  const heading = document.createElement("h2");
-  heading.textContent = "原理";
-  const exercises = document.createElement("h2");
-  exercises.textContent = "动手练习";
-  const list = document.createElement("ol");
-  list.append(...chapter.exercises.map((text) => textWithCode(document.createElement("li"), text)));
-  byId("lesson").replaceChildren(
-    heading,
-    ...chapter.paragraphs.map((text) => textWithCode(document.createElement("p"), text)),
-    exercises,
-    list,
-  );
+  renderStudy();
 
   const previous = chapters[index - 1];
   const next = chapters[index + 1];
